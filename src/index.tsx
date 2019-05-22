@@ -13,7 +13,7 @@ export type CryptoCompareResponse = CryptoCompareValues|CryptoCompareError;
 
 /**
 * @typedef {Object} Props
-* @property {string} apikey - (optional) the refresh interval (in ms)
+* @property {string} apikey - the cryptocompare.com api key
 * @property {string} from - the origin cryptocurrency/currency symbol of interest
 * @property {string} to - the destination cryptocurrency/currency symbol of interest
 * @property {number} amount - the amount to be converted
@@ -56,7 +56,7 @@ export const currencyClassName = "react-crypto-compare-currency";
 
 /**
 * @param props
-* @param props.apikey (optional) the refresh interval (in ms)
+* @param props.apikey the cryptocompare.com api key
 * @param props.from The email of the user.
 * @param props.to The email of the user.
 * @param props.amount The email of the user.
