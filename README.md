@@ -8,6 +8,8 @@ A simple cryptocurrencies converter component based on
   - [Install](#install)
   - [How to use](#how-to-use)
   - [CSS Classes](#css-classes)
+  - [Possible improvements](#possible-improvements)
+  - [Why](#why)
   - [Contributing](#contributing)
   - [Contributors](#contributors)
 
@@ -72,6 +74,20 @@ and its children ones
 .react-crypto-compare-amount
 .react-crypto-compare-currency
 ```
+
+## Possible improvements
+
+- passing the classes from the parent component
+- adding a interval-based refresh to have always the most updated conversion
+- managing multiple currencies conversion in a single component
+- adding a render prop to manage the rendered markup from the outside
+
+## Why
+
+I've developed it because I'd some spare time (more less 4 hours) and I'd like to play with:
+
+- [create-react-library](https://www.npmjs.com/package/create-react-library)
+- [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test)
 
 ## Contributing
 
