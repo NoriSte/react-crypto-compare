@@ -100,6 +100,12 @@ const CryptoCompare = ({
     fetchData();
   }, []);
 
+  React.useEffect(() => {
+    if(error) {
+      console.log("react-crypto-compare", error);
+    }
+  }, [error]);
+
   const printResult = !!data && is<CryptoCompareValues>(data, to);
 
   return (
