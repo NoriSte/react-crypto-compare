@@ -1,13 +1,15 @@
-import typescript from 'rollup-plugin-typescript2'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
+import svgr from '@svgr/rollup';
+import commonjs from 'rollup-plugin-commonjs';
+import json from 'rollup-plugin-json';
+import { default as resolve } from 'rollup-plugin-node-resolve';
+import external from 'rollup-plugin-peer-deps-external';
 // import postcss from 'rollup-plugin-postcss-modules'
-import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
-import svgr from '@svgr/rollup'
+import postcss from 'rollup-plugin-postcss';
+import typescript from 'rollup-plugin-typescript2';
+import url from 'rollup-plugin-url';
+import pkg from './package.json';
 
-import pkg from './package.json'
+
 
 export default {
   input: 'src/index.tsx',
@@ -32,11 +34,12 @@ export default {
     }),
     url(),
     svgr(),
-    resolve(),
+    resolve({ preferBuiltins: true, browser: true }),
     typescript({
       rollupCommonJSResolveHack: true,
       clean: true
     }),
-    commonjs()
+    commonjs(),
+    json()
   ]
 }
