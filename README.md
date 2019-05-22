@@ -1,31 +1,90 @@
 # react-crypto-compare
 
-> A simple cryptocurrencies converter component based on https://min-api.cryptocompare.com
+A simple cryptocurrencies converter component based on
+[https://min-api.cryptocompare.com](https://min-api.cryptocompare.com).
 
-[![NPM](https://img.shields.io/npm/v/react-crypto-compare.svg)](https://www.npmjs.com/package/react-crypto-compare) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+- [react-crypto-compare](#react-crypto-compare)
+  - [What this component does](#what-this-component-does)
+  - [Install](#install)
+  - [How to use](#how-to-use)
+  - [CSS Classes](#css-classes)
+  - [Contributing](#contributing)
+  - [Contributors](#contributors)
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Build Status](https://travis-ci.com/NoriSte/react-crypto-compare.svg?branch=master)](https://travis-ci.com/NoriSte/react-crypto-compare)
+[![Open Source
+Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
+
+## What this component does
+
+- it calls the [cryptocompare.com "Single Symbol Price"
+  API](https://min-api.cryptocompare.com/documentation?key=Price&cat=SingleSymbolPriceEndpoint) and
+  show the result
+- it allows to set the cryptocompare.com apikey once and reuse it
+- it comes unstyled, you can customize it using its [global classes](#css-classes)
+- it manages silently every network error (it logs errors into the console)
 
 ## Install
 
-```bash
-npm install --save react-crypto-compare
+`npm install --save react-crypto-compare`
+
+## How to use
+
+First of all, you need a [cryptocompare.com api
+key](https://www.cryptocompare.com/cryptopian/api-keys).
+
+Then
+```jsx
+import CryptoCompare from "react-crypto-compare" ;
+// ...
+<CryptoCompare from="EUR" to="BTC" amount={10} apikey="<YOUR_CRYPTOCOMPARE.COM_APIKEY>" />
+```
+it renders
+```html
+<div class="react-crypto-compare">
+    <span class="react-crypto-compare-amount">0.001408</span>
+    <span class="react-crypto-compare-currency">BTC</span>
+</div>
 ```
 
-## Usage
+You can set the api key just once to avoid passing it to the component
+```jsx
+import CryptoCompare, {setApikey} from "react-crypto-compare" ;
+setApikey("<YOUR_CRYPTOCOMPARE.COM_APIKEY>");
+// ...
+<CryptoCompare from="EUR" to="BTC" amount={10} />
+```
+please note that the `apikey` prop, if passed, takes the precedence over the global api key set
+though `setApikey`.
 
-```tsx
-import * as React from 'react'
+## CSS Classes
 
-import MyComponent from 'react-crypto-compare'
-
-class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
+You can customize the look&feel of the component using its classes
+```
+.react-crypto-compare
+.react-crypto-compare-error
+.react-crypto-compare-loading
+```
+and its children ones
+```
+.react-crypto-compare-amount
+.react-crypto-compare-currency
 ```
 
-## License
+## Contributing
 
-MIT © [NoriSte &lt;nori.ste.magni@gmail.com&gt;](https://github.com/NoriSte &lt;nori.ste.magni@gmail.com&gt;)
+PR or issues are welcome 👋
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="https://twitter.com/NoriSte"><img src="https://avatars0.githubusercontent.com/u/173663?v=4" width="100px;" alt="Stefano Magni"/><br /><sub><b>Stefano Magni</b></sub></a><br /><a href="https://github.com/NoriSte/react-crypto-compare/commits?author=NoriSte" title="Code">💻</a> <a href="https://github.com/NoriSte/react-crypto-compare/commits?author=NoriSte" title="Documentation">📖</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
