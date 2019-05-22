@@ -17,14 +17,12 @@ export type CryptoCompareResponse = CryptoCompareValues|CryptoCompareError;
 * @property {string} from - the origin cryptocurrency/currency symbol of interest
 * @property {string} to - the destination cryptocurrency/currency symbol of interest
 * @property {number} amount - the amount to be converted
-* @property {number} refreshInterval - (optional) the refresh interval (in ms)
 */
 export type Props = {
   apikey?: string,
   from: string,
   to: string,
   amount: number,
-  refreshInterval?: number,
 }
 
 let globalApikey:string = '';
@@ -34,6 +32,7 @@ let globalApikey:string = '';
 * @param {string} apikey
 */
 export const setApikey = (apikey:string) => globalApikey = apikey;
+export const getApikeyAuthorizationHeader = (apikey:string) => `Apikey ${apikey}`;
 
 
 export const emptyResult = "---";
@@ -44,14 +43,12 @@ export const emptyResult = "---";
 * @param props.from The email of the user.
 * @param props.to The email of the user.
 * @param props.amount The email of the user.
-* @param props.refreshInterval The email of the user.
 */
 const CryptoCompare = ({
   apikey,
   from,
   to,
-  amount,
-  refreshInterval
+  amount
 }:Props) => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string|undefined>(undefined);
@@ -74,8 +71,7 @@ const CryptoCompare = ({
     const fetchData = async () => {
 
       const headers = {
-        Authorization: `Apikey ${apikey || globalApikey}`,
-        "Content-Type": "application/json"
+        Authorization: getApikeyAuthorizationHeader(apikey || globalApikey)
       };
 
       setLoading(true);
@@ -110,16 +106,6 @@ const CryptoCompare = ({
 
   return (
     <div className={`react-crypto-compare ${error && 'react-crypto-compare-error'} ${loading && 'react-crypto-compare-loading'}`}>
-      <pre>{JSON.stringify({
-        apikey,
-        from,
-        to,
-        amount,
-        refreshInterval,
-        loading,
-        error,
-        data,
-      }, null, 2)}</pre>
       <span className="react-crypto-compare-amount">
         {printResult ? is<CryptoCompareValues>(data, to) && data[to] * amount : emptyResult}
       </span>{" "}
