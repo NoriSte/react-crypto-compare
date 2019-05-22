@@ -18,8 +18,6 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build",
     "cy:open": "cypress open",
     "commit": "npx git-cz"
   },
