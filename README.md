@@ -23,7 +23,7 @@ Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/elle
 
 - it calls the [cryptocompare.com "Single Symbol Price"
   API](https://min-api.cryptocompare.com/documentation?key=Price&cat=SingleSymbolPriceEndpoint) and
-  show the result
+  shows the result
 - it allows to set the cryptocompare.com apikey once and reuse it
 - it comes unstyled, you can customize it using its [global classes](#css-classes)
 - it manages silently every network error (it logs errors into the console)
@@ -78,7 +78,7 @@ and its children ones
 ## Possible improvements
 
 - passing the classes from the parent component
-- adding a interval-based refresh to have always the most updated conversion
+- adding an interval-based refresh to have always the most updated conversion
 - managing multiple currencies conversion in a single component
 - adding a render prop to manage the rendered markup from the outside
 
