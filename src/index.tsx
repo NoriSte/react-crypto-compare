@@ -32,10 +32,25 @@ let globalApikey:string = '';
 * @param {string} apikey
 */
 export const setApikey = (apikey:string) => globalApikey = apikey;
+/**
+* Get the authorization header for the cryptocompare.com API
+* @param {string} apikey
+* @return {string}
+*/
 export const getApikeyAuthorizationHeader = (apikey:string) => `Apikey ${apikey}`;
+/**
+* Get the cryptocompare.com API URL
+* @param {string} from
+* @param {string} to
+* @return {string}
+*/
+export const getApiUrl = (from:string, to:string) => `https://min-api.cryptocompare.com/data/price?fsym=${from}&tsyms=${to}`;
 
 
 export const emptyResult = "---";
+export const defaultClassName = "react-crypto-compare";
+export const errorClassName = "react-crypto-compare--error";
+export const loadingClassName = "react-crypto-compare--loading";
 
 /**
 * @param props
@@ -67,6 +82,15 @@ const CryptoCompare = ({
     throw(new Error("'amount' must be a number"));
   }
 
+  if(from.includes(",")) {
+    console.info("Multiple currencies aren't supported yet");
+    from = from.split(",")[0];
+  }
+  if(to.includes(",")) {
+    console.info("Multiple currencies aren't supported yet");
+    to = to.split(",")[0];
+  }
+
   React.useEffect(() => {
     const fetchData = async () => {
 
@@ -77,7 +101,7 @@ const CryptoCompare = ({
       setLoading(true);
       let response: AxiosResponse<CryptoCompareResponse>;
       try {
-        response = await axios.get(`https://min-api.cryptocompare.com/data/price?fsym=${from}&tsyms=${to}`, {headers});
+        response = await axios.get(getApiUrl(from, to), {headers});
       } catch(e){
         response = e.response;
       }
@@ -105,7 +129,7 @@ const CryptoCompare = ({
   const printResult = !!data && is<CryptoCompareValues>(data, to);
 
   return (
-    <div className={`react-crypto-compare ${error && 'react-crypto-compare-error'} ${loading && 'react-crypto-compare-loading'}`}>
+    <div className={`${defaultClassName} ${error && errorClassName} ${loading && loadingClassName}`}>
       <span className="react-crypto-compare-amount">
         {printResult ? is<CryptoCompareValues>(data, to) && data[to] * amount : emptyResult}
       </span>{" "}
