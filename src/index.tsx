@@ -49,8 +49,10 @@ export const getApiUrl = (from:string, to:string) => `https://min-api.cryptocomp
 
 export const emptyResult = "---";
 export const defaultClassName = "react-crypto-compare";
-export const errorClassName = "react-crypto-compare--error";
-export const loadingClassName = "react-crypto-compare--loading";
+export const errorClassName = "react-crypto-compare-error";
+export const loadingClassName = "react-crypto-compare-loading";
+export const amountClassName = "react-crypto-compare-amount";
+export const currencyClassName = "react-crypto-compare-currency";
 
 /**
 * @param props
@@ -129,11 +131,11 @@ const CryptoCompare = ({
   const printResult = !!data && is<CryptoCompareValues>(data, to);
 
   return (
-    <div className={`${defaultClassName} ${error && errorClassName} ${loading && loadingClassName}`}>
-      <span className="react-crypto-compare-amount">
+    <div className={`${defaultClassName} ${error ? errorClassName : ''} ${loading ? loadingClassName : ''}`}>
+      <span className={amountClassName}>
         {printResult ? is<CryptoCompareValues>(data, to) && data[to] * amount : emptyResult}
       </span>{" "}
-      <span className="react-crypto-compare-currency">{to}</span>
+      <span className={currencyClassName}>{to}</span>
     </div>
     )
   }

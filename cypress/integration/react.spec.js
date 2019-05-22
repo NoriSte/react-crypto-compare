@@ -1,7 +1,7 @@
 
 // import the component you want to test
 import React from 'react';
-import CryptoCompare, { defaultClassName, emptyResult, errorClassName, getApikeyAuthorizationHeader, getApiUrl, loadingClassName, setApikey } from '../../src/index.tsx';
+import CryptoCompare, { amountClassName, currencyClassName, defaultClassName, emptyResult, errorClassName, getApikeyAuthorizationHeader, getApiUrl, loadingClassName, setApikey } from '../../src/index.tsx';
 import fixReactDomScope from '../support/fixReactDomScope';
 
 
@@ -17,6 +17,8 @@ describe('CryptoCompare component', () => {
     cy.contains(amount);
     cy.contains(currency);
     cy.get(selector).should("be.visible");
+    cy.get(`.${amountClassName}`).should("be.visible");
+    cy.get(`.${currencyClassName}`).should("be.visible");
   }
   const waitAndcheckApikey = (alias = "@cryptocompare", key = apikey) => {
     cy.wait(alias).then(xhr => {
