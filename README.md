@@ -24,7 +24,7 @@ Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/elle
 - it calls the [cryptocompare.com "Single Symbol Price"
   API](https://min-api.cryptocompare.com/documentation?key=Price&cat=SingleSymbolPriceEndpoint) and
   shows the result
-- it allows to set the cryptocompare.com apikey once and reuse it
+- it allows to set the [cryptocompare.com apikey](https://www.cryptocompare.com/cryptopian/api-keys) once and reuse it
 - it comes unstyled, you can customize it using its [global classes](#css-classes)
 - it manages silently every network error (it logs errors into the console)
 
