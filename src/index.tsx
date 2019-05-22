@@ -1,14 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
 import * as React from 'react';
 import { is } from 'typescript-is-type';
-import styles from './styles.css';
 
 
 export type CryptoCompareValues = {
   [key: string]: number
 }
 export type CryptoCompareError = {
-  Response: string,
   Message: string
 }
 export type CryptoCompareResponse = CryptoCompareValues|CryptoCompareError;
@@ -37,6 +35,17 @@ let globalApikey:string = '';
 */
 export const setApikey = (apikey:string) => globalApikey = apikey;
 
+
+export const emptyResult = "---";
+
+/**
+* @param props
+* @param props.apikey (optional) the refresh interval (in ms)
+* @param props.from The email of the user.
+* @param props.to The email of the user.
+* @param props.amount The email of the user.
+* @param props.refreshInterval The email of the user.
+*/
 const CryptoCompare = ({
   apikey,
   from,
@@ -48,8 +57,8 @@ const CryptoCompare = ({
   const [error, setError] = React.useState<string|undefined>(undefined);
   const [data, setData] = React.useState<CryptoCompareValues|undefined>(undefined);
 
-  if(!apikey) {
-    throw(new Error("'apikey' is required"));
+  if(!apikey && !globalApikey) {
+    throw(new Error("'apikey' (or a global apikey set with 'setApikey') is required"));
   }
   if(!from) {
     throw(new Error("'from' is required"));
@@ -75,11 +84,12 @@ const CryptoCompare = ({
         response = await axios.get(`https://min-api.cryptocompare.com/data/price?fsym=${from}&tsyms=${to}`, {headers});
       } catch(e){
         response = e.response;
-        if(response && response.data && is<CryptoCompareError>(response.data, "Message")) {
-          setError((response.data as CryptoCompareError).Message);
-        } else {
-          setError("Error");
-        }
+      }
+
+      if(response && response.data && is<CryptoCompareError>(response.data, "Message")) {
+        setError((response.data as CryptoCompareError).Message);
+      } else {
+        setError("Error");
       }
 
       setLoading(false);
@@ -90,22 +100,26 @@ const CryptoCompare = ({
     fetchData();
   }, []);
 
+  const printResult = !!data && is<CryptoCompareValues>(data, to);
 
   return (
-    <div className={styles.test}>
-    <pre>{JSON.stringify({loading, error, data}, null, 2)}</pre>
-    <pre>{JSON.stringify({apikey,
-      from,
-      to,
-      refreshInterval}, null, 2)}</pre>
-      {!!data &&
-        <span className="react-crypto-compare">
-          <span className="react-crypto-compare-amount">{data[to] * amount}</span>{" "}
-          <span className="react-crypto-compare-currency">{to}</span>
-        </ span>
-      }
-      </div>
-      )
-    }
+    <div className={`react-crypto-compare ${error && 'react-crypto-compare-error'} ${loading && 'react-crypto-compare-loading'}`}>
+      <pre>{JSON.stringify({
+        apikey,
+        from,
+        to,
+        amount,
+        refreshInterval,
+        loading,
+        error,
+        data,
+      }, null, 2)}</pre>
+      <span className="react-crypto-compare-amount">
+        {printResult ? is<CryptoCompareValues>(data, to) && data[to] * amount : emptyResult}
+      </span>{" "}
+      <span className="react-crypto-compare-currency">{to}</span>
+    </div>
+    )
+  }
 
-    export default CryptoCompare;
+  export default CryptoCompare;
