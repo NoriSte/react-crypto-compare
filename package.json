@@ -5,6 +5,13 @@
   "author": "NoriSte &lt;nori.ste.magni@gmail.com&gt;",
   "license": "MIT",
   "repository": "https://github.com/NoriSte/react-crypto-compare",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "cypress",
+    "cryptocurrencies",
+    "typescript"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
