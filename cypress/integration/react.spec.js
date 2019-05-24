@@ -1,4 +1,6 @@
 
+/// <reference types="Cypress" />
+
 // import the component you want to test
 import React from 'react';
 import CryptoCompare, { amountClassName, currencyClassName, defaultClassName, emptyResult, errorClassName, getApikeyAuthorizationHeader, getApiUrl, loadingClassName, setApikey } from '../../src/index.tsx';

@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { is } from 'typescript-is-type';
 
@@ -61,7 +62,7 @@ export const currencyClassName = "react-crypto-compare-currency";
 * @param props.to The email of the user.
 * @param props.amount The email of the user.
 */
-const CryptoCompare = ({
+const CryptoCompare: React.FunctionComponent<Props> = ({
   apikey,
   from,
   to,
@@ -72,16 +73,16 @@ const CryptoCompare = ({
   const [data, setData] = React.useState<CryptoCompareValues|undefined>(undefined);
 
   if(!apikey && !globalApikey) {
-    throw(new Error("'apikey' (or a global apikey set with 'setApikey') is required"));
+    throw new Error("'apikey' (or a global apikey set with 'setApikey') is required");
   }
   if(!from) {
-    throw(new Error("'from' is required"));
+    throw new Error("'from' is required");
   }
   if(!to) {
-    throw(new Error("'to' is required"));
+    throw new Error("'to' is required");
   }
   if(isNaN(amount)) {
-    throw(new Error("'amount' must be a number"));
+    throw new Error("'amount' must be a number");
   }
 
   if(from.includes(",")) {
@@ -137,7 +138,26 @@ const CryptoCompare = ({
       </span>{" "}
       <span className={currencyClassName}>{to}</span>
     </div>
-    )
-  }
+  )
+}
+
+CryptoCompare.propTypes = {
+  apikey: (props: Props, propName: string, componentName: string) => {
+    let error: Error|null = null;
+    const prop = props[propName];
+    if (prop && typeof prop !== "string") {
+      error = new Error(`${componentName} - ${propName} must be a string`);
+    }
+    if (!prop && !globalApikey) {
+      error = new Error(
+        `${componentName} - ${propName} must be defined, set the component prop or use the 'setApikey' function`
+        );
+      }
+      return error;
+    },
+    from: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired
+  };
 
   export default CryptoCompare;
