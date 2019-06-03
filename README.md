@@ -5,6 +5,7 @@ A simple cryptocurrencies converter component based on
 
 [![Build Status](https://travis-ci.com/NoriSte/react-crypto-compare.svg?branch=master)](https://travis-ci.com/NoriSte/react-crypto-compare)
 [![Build Cron](https://img.shields.io/badge/build%20cron-weekly-44cc11.svg)](https://travis-ci.com/NoriSte/react-crypto-compare)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Open Source
 Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
