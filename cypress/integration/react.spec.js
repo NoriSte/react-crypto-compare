@@ -47,7 +47,7 @@ describe("CryptoCompare component", () => {
   });
 
   describe("Integration tests", () => {
-    it.only("Should convert the currency", function() {
+    it("Should convert the currency", function() {
       cy.route(url, response).as("cryptocompare");
       cy.mount(<CryptoCompare from={from} to={to} amount={amount} apikey={apikey} />);
       cy.get(`.${loadingClassName}`).should("be.visible");

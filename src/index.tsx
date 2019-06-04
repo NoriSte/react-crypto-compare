@@ -1,11 +1,14 @@
 import axios, { AxiosResponse } from "axios";
+import c from "classnames";
 import * as PropTypes from "prop-types";
 import * as React from "react";
 import { is } from "typescript-is-type";
 
+// cryptocompare.com success response
 export type CryptoCompareValues = {
   [key: string]: number;
 };
+// cryptocompare.com error response (the only fields we care about)
 export type CryptoCompareError = {
   Message: string;
 };
@@ -47,7 +50,10 @@ export const getApikeyAuthorizationHeader = (apikey: string) => `Apikey ${apikey
 export const getApiUrl = (from: string, to: string) =>
   `https://min-api.cryptocompare.com/data/price?fsym=${from}&tsyms=${to}`;
 
+// what the user sees when the result isn't available
 export const emptyResult = "---";
+
+// the default CSS classes applied to the component
 export const defaultClassName = "react-crypto-compare";
 export const errorClassName = "react-crypto-compare-error";
 export const loadingClassName = "react-crypto-compare-loading";
@@ -66,6 +72,7 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
   const [error, setError] = React.useState<string | undefined>(undefined);
   const [data, setData] = React.useState<CryptoCompareValues | undefined>(undefined);
 
+  // required props checks
   if (!apikey && !globalApikey) {
     throw new Error("'apikey' (or a global apikey set with 'setApikey') is required");
   }
@@ -79,6 +86,7 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
     throw new Error("'amount' must be a number");
   }
 
+  // soft props checks
   if (from.includes(",")) {
     console.info("Multiple currencies aren't supported yet");
     from = from.split(",")[0];
@@ -99,37 +107,37 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
       try {
         response = await axios.get(getApiUrl(from, to), { headers });
       } catch (e) {
+        // the component must never fail
         response = e.response;
+        setError("Error");
+        console.error(response);
       }
 
+      // error management
       if (response && response.data && is<CryptoCompareError>(response.data, "Message")) {
         setError((response.data as CryptoCompareError).Message);
-      } else {
-        setError("Error");
       }
 
       setLoading(false);
+
+      // success management
       if (response && response.data && is<CryptoCompareValues>(response.data, to)) {
         setData(response.data);
       }
     };
     fetchData();
-  }, []);
+  }, []); // calls the effect when the component mounts only
 
   React.useEffect(() => {
     if (error) {
-      console.log("react-crypto-compare", error);
+      console.error("react-crypto-compare", error);
     }
-  }, [error]);
+  }, [error]); // calls the effect when the error changes
 
   const printResult = !!data && is<CryptoCompareValues>(data, to);
 
   return (
-    <div
-      className={`${defaultClassName} ${error ? errorClassName : ""} ${
-        loading ? loadingClassName : ""
-      }`}
-    >
+    <div className={c(defaultClassName, { [errorClassName]: error, [loadingClassName]: loading })}>
       <span className={amountClassName}>
         {printResult
           ? is<CryptoCompareValues>(data, to) && (data[to] * amount).toFixed(8)
