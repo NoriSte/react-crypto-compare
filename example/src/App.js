@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   getRandom() {
-    return (1000 * Math.random()).toFixed(2);
+    return Math.round(1000 * Math.random());
   }
 
   setRandom() {
