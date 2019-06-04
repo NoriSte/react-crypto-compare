@@ -21,7 +21,6 @@ Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/elle
   - [Contributing](#contributing)
   - [Contributors](#contributors)
 
-
 ## What this component does
 
 - it calls the [cryptocompare.com "Single Symbol Price"
@@ -41,38 +40,46 @@ First of all, you need a [cryptocompare.com api
 key](https://www.cryptocompare.com/cryptopian/api-keys).
 
 Then
+
 ```jsx
-import CryptoCompare from "react-crypto-compare" ;
+import CryptoCompare from "react-crypto-compare";
 // ...
-<CryptoCompare from="EUR" to="BTC" amount={10} apikey="<YOUR_CRYPTOCOMPARE.COM_APIKEY>" />
+<CryptoCompare from="EUR" to="BTC" amount={10} apikey="<YOUR_CRYPTOCOMPARE.COM_APIKEY>" />;
 ```
+
 it renders
+
 ```html
 <div class="react-crypto-compare">
-    <span class="react-crypto-compare-amount">0.001408</span>
-    <span class="react-crypto-compare-currency">BTC</span>
+  <span class="react-crypto-compare-amount">0.001408</span>
+  <span class="react-crypto-compare-currency">BTC</span>
 </div>
 ```
 
 You can set the api key just once to avoid passing it to the component
+
 ```jsx
-import CryptoCompare, {setApikey} from "react-crypto-compare" ;
+import CryptoCompare, { setApikey } from "react-crypto-compare";
 setApikey("<YOUR_CRYPTOCOMPARE.COM_APIKEY>");
 // ...
-<CryptoCompare from="EUR" to="BTC" amount={10} />
+<CryptoCompare from="EUR" to="BTC" amount={10} />;
 ```
+
 please note that the `apikey` prop, if passed, takes the precedence over the global api key set
 though `setApikey`.
 
 ## CSS Classes
 
 You can customize the look&feel of the component using its classes
+
 ```
 .react-crypto-compare
 .react-crypto-compare-error
 .react-crypto-compare-loading
 ```
+
 and its children ones
+
 ```
 .react-crypto-compare-amount
 .react-crypto-compare-currency
@@ -80,7 +87,8 @@ and its children ones
 
 ## Possible improvements
 
-- passing the classes from the parent component
+- managing the decimals for every currency
+- passing the CSS classes from the parent component
 - adding an interval-based refresh to have always the most updated conversion
 - managing multiple currencies conversion in a single component
 - adding a render prop to manage the rendered markup from the outside
