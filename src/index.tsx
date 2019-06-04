@@ -49,6 +49,14 @@ export const getApikeyAuthorizationHeader = (apikey: string) => `Apikey ${apikey
  */
 export const getApiUrl = (from: string, to: string) =>
   `https://min-api.cryptocompare.com/data/price?fsym=${from}&tsyms=${to}`;
+/**
+ * Get the currency amount to be printed
+ * @param {number} conversionRate
+ * @param {number} amount
+ * @return {string}
+ */
+export const getAmount = (amount: number, conversionRate: number) =>
+  (conversionRate * amount).toFixed(8);
 
 // what the user sees when the result isn't available
 export const emptyResult = "---";
