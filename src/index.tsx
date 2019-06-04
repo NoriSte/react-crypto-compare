@@ -148,7 +148,7 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
     <div className={c(defaultClassName, { [errorClassName]: error, [loadingClassName]: loading })}>
       <span className={amountClassName}>
         {printResult
-          ? is<CryptoCompareValues>(data, to) && (data[to] * amount).toFixed(8)
+          ? is<CryptoCompareValues>(data, to) && getAmount(amount, data[to])
           : emptyResult}
       </span>{" "}
       <span className={currencyClassName}>{to}</span>
