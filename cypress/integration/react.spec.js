@@ -42,8 +42,8 @@ describe("CryptoCompare component", () => {
   };
 
   beforeEach(function() {
-    // see https://github.com/bahmutov/cypress-react-unit-test/issues/51
     cy.server();
+    // see https://github.com/bahmutov/cypress-react-unit-test/issues/51
     fixReactDomScope(window);
   });
 
