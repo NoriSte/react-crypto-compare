@@ -76,10 +76,6 @@ export const currencyClassName = "react-crypto-compare-currency";
  * @param props.amount The email of the user.
  */
 const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amount }: Props) => {
-  const [loading, setLoading] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string | undefined>(undefined);
-  const [data, setData] = React.useState<CryptoCompareValues | undefined>(undefined);
-
   // required props checks
   if (!apikey && !globalApikey) {
     throw new Error("'apikey' (or a global apikey set with 'setApikey') is required");
@@ -103,6 +99,10 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
     console.info("Multiple currencies aren't supported yet");
     to = to.split(",")[0];
   }
+
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<string | undefined>(undefined);
+  const [data, setData] = React.useState<CryptoCompareValues | undefined>(undefined);
 
   // see https://medium.com/@pshrmn/react-hook-gotchas-e6ca52f49328
   const mounted = React.useRef(true);
@@ -137,7 +137,7 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
 
       // error management
       if (response && response.data && is<CryptoCompareError>(response.data, "Message")) {
-        setStateIfMounted(setError, (response.data as CryptoCompareError).Message);
+        setStateIfMounted(setError, response.data.Message);
       }
 
       setStateIfMounted(setLoading, false);
@@ -156,15 +156,14 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
     }
   }, [error]); // calls the effect when the error changes
 
-  const printResult = !!data && is<CryptoCompareValues>(data, to);
+  let result = emptyResult;
+  if (data && is<CryptoCompareValues>(data, to)) {
+    result = getAmount(amount, data[to]);
+  }
 
   return (
     <div className={c(defaultClassName, { [errorClassName]: error, [loadingClassName]: loading })}>
-      <span className={amountClassName}>
-        {printResult
-          ? is<CryptoCompareValues>(data, to) && getAmount(amount, data[to])
-          : emptyResult}
-      </span>{" "}
+      <span className={amountClassName}>{result}</span>{" "}
       <span className={currencyClassName}>{to}</span>
     </div>
   );
