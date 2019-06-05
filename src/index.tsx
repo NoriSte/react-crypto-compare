@@ -104,33 +104,47 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
     to = to.split(",")[0];
   }
 
+  // see https://medium.com/@pshrmn/react-hook-gotchas-e6ca52f49328
+  const mounted = React.useRef(true);
+  React.useEffect(() => {
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
+  const setStateIfMounted = (setStateFunction, value) => {
+    if (mounted.current) {
+      setStateFunction(value);
+    }
+  };
+
   React.useEffect(() => {
     const fetchData = async () => {
       const headers = {
         Authorization: getApikeyAuthorizationHeader(apikey || globalApikey)
       };
 
-      setLoading(true);
+      setStateIfMounted(setLoading, true);
       let response: AxiosResponse<CryptoCompareResponse>;
       try {
         response = await axios.get(getApiUrl(from, to), { headers });
       } catch (e) {
         // the component must never fail
         response = e.response;
-        setError("Error");
+        setStateIfMounted(setError, "Error");
         console.error(response);
       }
 
       // error management
       if (response && response.data && is<CryptoCompareError>(response.data, "Message")) {
-        setError((response.data as CryptoCompareError).Message);
+        setStateIfMounted(setError, (response.data as CryptoCompareError).Message);
       }
 
-      setLoading(false);
+      setStateIfMounted(setLoading, false);
 
       // success management
       if (response && response.data && is<CryptoCompareValues>(response.data, to)) {
-        setData(response.data);
+        setStateIfMounted(setData, response.data);
       }
     };
     fetchData();
