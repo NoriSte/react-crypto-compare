@@ -5,10 +5,10 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
     "react-crypto-compare": "link:..",
-    "react-scripts": "^3.0.0"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
