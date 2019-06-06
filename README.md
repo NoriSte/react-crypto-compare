@@ -87,7 +87,7 @@ and its children ones
 
 ## Possible improvements
 
-- managing the decimals for every currency
+- managing the decimals for every cryptocurrency (at the moment fixed at eight thinking about Bitcoin)
 - passing the CSS classes from the parent component
 - adding an interval-based refresh to have always the most updated conversion
 - managing multiple currencies conversion in a single component
