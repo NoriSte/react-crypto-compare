@@ -8,6 +8,7 @@ import CryptoCompare, {
   defaultClassName,
   emptyResult,
   errorClassName,
+  getAmount,
   getApikeyAuthorizationHeader,
   getApiUrl,
   loadingClassName,
@@ -41,8 +42,8 @@ describe("CryptoCompare component", () => {
   };
 
   beforeEach(function() {
-    // see https://github.com/bahmutov/cypress-react-unit-test/issues/51
     cy.server();
+    // see https://github.com/bahmutov/cypress-react-unit-test/issues/51
     fixReactDomScope(window);
   });
 
@@ -52,7 +53,7 @@ describe("CryptoCompare component", () => {
       cy.mount(<CryptoCompare from={from} to={to} amount={amount} apikey={apikey} />);
       cy.get(`.${loadingClassName}`).should("be.visible");
       waitAndcheckApikey();
-      checkComponent(amount * response[to], to);
+      checkComponent(getAmount(amount, response[to]), to);
     });
 
     it("Should manage a service response error", function() {
@@ -75,7 +76,7 @@ describe("CryptoCompare component", () => {
       setApikey(apikey);
       cy.mount(<CryptoCompare from={from} to={to} amount={amount} />);
       waitAndcheckApikey();
-      checkComponent(amount * response[to], to);
+      checkComponent(getAmount(amount, response[to]), to);
     });
 
     it("Should give precedence to the passed api key", function() {
@@ -83,7 +84,7 @@ describe("CryptoCompare component", () => {
       setApikey("global-apikey");
       cy.mount(<CryptoCompare from={from} to={to} amount={amount} apikey={apikey} />);
       waitAndcheckApikey();
-      checkComponent(amount * response[to], to);
+      checkComponent(getAmount(amount, response[to]), to);
     });
 
     it("Should manage multiple currencies selecting the first one", function() {
@@ -92,7 +93,7 @@ describe("CryptoCompare component", () => {
         <CryptoCompare from={`${from},USD`} to={`${to},BCH`} amount={amount} apikey={apikey} />
       );
       waitAndcheckApikey();
-      checkComponent(amount * response[to], to);
+      checkComponent(getAmount(amount, response[to]), to);
     });
   });
 
@@ -102,7 +103,9 @@ describe("CryptoCompare component", () => {
       cy.mount(<CryptoCompare from={from} to={to} amount={amount} apikey={apikey} />);
       cy.wait("@cryptocompare")
         .its(`response.body.${to}`)
-        .then(conversion => checkComponent(amount * conversion, to, `.${defaultClassName}`));
+        .then(conversionRate =>
+          checkComponent(getAmount(amount, conversionRate), to, `.${defaultClassName}`)
+        );
     });
   });
 });
