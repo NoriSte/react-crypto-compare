@@ -1,6 +1,6 @@
 {
   "name": "react-crypto-compare",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A simple cryptocurrencies converter component based on https://min-api.cryptocompare.com",
   "author": "NoriSte &lt;nori.ste.magni@gmail.com&gt;",
   "license": "MIT",
