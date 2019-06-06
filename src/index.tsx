@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, CancelTokenSource } from "axios";
 import c from "classnames";
 import * as PropTypes from "prop-types";
 import * as React from "react";
@@ -104,50 +104,56 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
   const [error, setError] = React.useState<string | undefined>(undefined);
   const [data, setData] = React.useState<CryptoCompareValues | undefined>(undefined);
 
-  // see https://medium.com/@pshrmn/react-hook-gotchas-e6ca52f49328
-  const mounted = React.useRef(true);
   React.useEffect(() => {
-    return () => {
-      mounted.current = false;
-    };
-  }, []);
-
-  const setStateIfMounted = (setStateFunction, value) => {
-    if (mounted.current) {
-      setStateFunction(value);
-    }
-  };
-
-  React.useEffect(() => {
+    let cancelToken: CancelTokenSource;
     const fetchData = async () => {
       const headers = {
         Authorization: getApikeyAuthorizationHeader(apikey || globalApikey)
       };
 
-      setStateIfMounted(setLoading, true);
-      let response: AxiosResponse<CryptoCompareResponse>;
+      setLoading(true);
+      let cancelled = false;
+      let response: AxiosResponse<CryptoCompareResponse> | null = null;
       try {
-        response = await axios.get(getApiUrl(from, to), { headers });
+        cancelToken = axios.CancelToken.source();
+        response = await axios.get(getApiUrl(from, to), {
+          headers,
+          cancelToken: cancelToken.token
+        });
       } catch (e) {
-        // the component must never fail
-        response = e.response;
-        setStateIfMounted(setError, "Error");
-        console.error(response);
+        if (axios.isCancel(e)) {
+          cancelled = true;
+        } else {
+          // the component must never fail
+          response = e.response;
+          setError("Error");
+          console.error(response);
+        }
+      }
+
+      if (cancelled) {
+        return;
       }
 
       // error management
       if (response && response.data && is<CryptoCompareError>(response.data, "Message")) {
-        setStateIfMounted(setError, response.data.Message);
+        setError(response.data.Message);
       }
 
-      setStateIfMounted(setLoading, false);
+      setLoading(false);
 
       // success management
       if (response && response.data && is<CryptoCompareValues>(response.data, to)) {
-        setStateIfMounted(setData, response.data);
+        setData(response.data);
       }
     };
     fetchData();
+
+    return () => {
+      if (cancelToken) {
+        cancelToken.cancel();
+      }
+    };
   }, []); // calls the effect when the component mounts only
 
   React.useEffect(() => {
