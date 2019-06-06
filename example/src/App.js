@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import CryptoCompare from "react-crypto-compare";
 
 export default class App extends Component {
+  currencies = ["EUR", "USD"];
   constructor() {
     super();
     this.setRandom = this.setRandom.bind(this);
     this.toggleComponent = this.toggleComponent.bind(this);
+    this.toggleCurrency = this.toggleCurrency.bind(this);
     this.state = {
+      currency: this.currencies[0],
       random: this.getRandom(),
       mountComponent: true
     };
@@ -27,12 +30,13 @@ export default class App extends Component {
         {this.state.mountComponent && (
           <div style={{ marginTop: "1em" }}>
             <CryptoCompare
-              from="EUR"
+              from={this.state.currency}
               to="BTC"
               amount={this.state.random}
               apikey="9dbe3a144881f49682bf50733db69eb57b2aaa07f6e71f1fb03fb3dbea257695"
             />
             <button onClick={this.setRandom}>Randomize value</button>
+            <button onClick={this.toggleCurrency}>Toggle {this.currencies.join("/")}</button>
           </div>
         )}
       </div>
@@ -46,6 +50,11 @@ export default class App extends Component {
   setRandom() {
     this.setState({
       random: this.getRandom()
+    });
+  }
+  toggleCurrency() {
+    this.setState({
+      currency: this.currencies[this.currencies.indexOf(this.state.currency) ? 0 : 1]
     });
   }
   toggleComponent() {

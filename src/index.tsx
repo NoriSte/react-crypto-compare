@@ -154,7 +154,7 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
         cancelToken.cancel();
       }
     };
-  }, []); // calls the effect when the component mounts only
+  }, [from, to]);
 
   React.useEffect(() => {
     if (error) {
