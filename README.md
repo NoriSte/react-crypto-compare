@@ -16,6 +16,7 @@ Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/elle
   - [Install](#install)
   - [How to use](#how-to-use)
   - [CSS Classes](#css-classes)
+  - [Working example](#working-example)
   - [Possible improvements](#possible-improvements)
   - [Why](#why)
   - [Contributing](#contributing)
@@ -83,6 +84,14 @@ and its children ones
 ```
 .react-crypto-compare-amount
 .react-crypto-compare-currency
+```
+
+## Working example
+
+Run
+
+```bash
+cd example && npm run start
 ```
 
 ## Possible improvements
