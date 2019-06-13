@@ -11005,10 +11005,10 @@ typescript-is-type@1.0.1:
   resolved "https://registry.yarnpkg.com/typescript-is-type/-/typescript-is-type-1.0.1.tgz#8ac0e5173db2feb0a958740efddb07ac379f8e49"
   integrity sha512-YbhCpm3519Y3jRXPzFMo+Jbe8x6IQXUHDy7E5secJsRhjn1ixmuKSWd7Yl1ito3EIs1PQAJSrR33wkxXKJc5Eg==
 
-typescript@3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.1.tgz#ba72a6a600b2158139c5dd8850f700e231464202"
-  integrity sha512-64HkdiRv1yYZsSe4xC1WVgamNigVYjlssIoaH2HcZF0+ijsk5YK2g0G34w9wJkze8+5ow4STd22AynfO6ZYYLw==
+typescript@3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
+  integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==
 
 uglify-es@^3.3.4:
   version "3.3.9"
