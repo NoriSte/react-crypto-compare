@@ -1,7 +1,7 @@
 # react-crypto-compare
 
 A simple cryptocurrencies converter component based on
-[https://min-api.cryptocompare.com](https://min-api.cryptocompare.com).
+[https://min-api.cryptocompare.com](https://min-api.cryptocompare.com). Min React version: 16.8.
 
 [![Build Status](https://travis-ci.com/NoriSte/react-crypto-compare.svg?branch=master)](https://travis-ci.com/NoriSte/react-crypto-compare)
 [![Build Cron](https://img.shields.io/badge/build%20cron-weekly-44cc11.svg)](https://travis-ci.com/NoriSte/react-crypto-compare)

@@ -100,6 +100,14 @@ const CryptoCompare: React.FunctionComponent<Props> = ({ apikey, from, to, amoun
     to = to.split(",")[0];
   }
 
+  if (!React.useState || !React.useEffect) {
+    throw new Error(
+      `React.useState or React.useEffect are not defined. Required React version: 16.8+, actual React version: ${
+        React.version
+      }`
+    );
+  }
+
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string | undefined>(undefined);
   const [data, setData] = React.useState<CryptoCompareValues | undefined>(undefined);
