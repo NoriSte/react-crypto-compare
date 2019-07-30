@@ -53,7 +53,7 @@ describe("CryptoCompare component", () => {
       cy.mount(<CryptoCompare from={from} to={to} amount={amount} apikey={apikey} />);
       cy.get(`.${loadingClassName}`).should("be.visible");
       waitAndcheckApikey();
-      checkComponent(getAmount(amount, response[to]), to);
+      checkComponent(getAmount(0, response[to]), to);
     });
 
     it("Should manage a service response error", function() {
