@@ -11,6 +11,7 @@ A simple cryptocurrencies converter component based on
 [![Open Source
 Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare?ref=badge_shield)
 
 - [react-crypto-compare](#react-crypto-compare)
   - [What this component does](#what-this-component-does)
@@ -125,3 +126,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare?ref=badge_large)
