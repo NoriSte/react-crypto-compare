@@ -5,9 +5,11 @@ A simple cryptocurrencies converter component based on
 
 [![Build Status](https://travis-ci.com/NoriSte/react-crypto-compare.svg?branch=master)](https://travis-ci.com/NoriSte/react-crypto-compare)
 [![Build Cron](https://img.shields.io/badge/build%20cron-weekly-44cc11.svg)](https://travis-ci.com/NoriSte/react-crypto-compare)
-[![Cypress Dashboard](https://img.shields.io/static/v1?label=Cypress&message=Dashboard&color=00BF88)](https://dashboard.cypress.io/#/projects/zc8g3j/runs)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![Cypress Dashboard](https://img.shields.io/static/v1?label=Cypress&message=Dashboard&color=00BF88)](https://dashboard.cypress.io/#/projects/zc8g3j/runs)
+<br />
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare?ref=badge_shield)
 [![Open Source
 Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
