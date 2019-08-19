@@ -116,6 +116,8 @@ I've developed it because I'd some spare time (more less 4 hours) and I'd like t
 
 PR or issues are welcome 👋
 
+If you need to run the tests through `npm test`, you must update the packjage.json configuration setting `cypressUploadRecordings` to `false` (or set your own [Cypress recording key](https://docs.cypress.io/guides/guides/command-line.html#Options)).
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
