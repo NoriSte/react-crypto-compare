@@ -20,7 +20,7 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "yarn build && cypress run --record --key f69dced8-2b8d-4155-b696-5d8e21d9d8ca",
+    "test": "yarn build && cypress run",
     "test:watch": "react-scripts-ts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
