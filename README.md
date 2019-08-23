@@ -10,8 +10,7 @@ A simple cryptocurrencies converter component based on
 <br />
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNoriSte%2Freact-crypto-compare?ref=badge_shield)
-[![Open Source
-Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 
 - [react-crypto-compare](#react-crypto-compare)
