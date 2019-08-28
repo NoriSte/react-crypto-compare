@@ -70,7 +70,7 @@
     "rollup-plugin-typescript2": "0.23.0",
     "rollup-plugin-url": "2.2.2",
     "ts-loader": "6.0.4",
-    "typescript": "3.5.3",
+    "typescript": "3.6.2",
     "typescript-is-type": "1.0.2",
     "webpack": "4.39.3"
   },
