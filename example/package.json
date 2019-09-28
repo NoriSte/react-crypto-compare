@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "prop-types": "15.7.2",
-    "react": "16.10.0",
+    "react": "16.10.1",
     "react-crypto-compare": "link:..",
     "react-scripts": "3.1.2"
   },
