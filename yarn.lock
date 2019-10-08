@@ -7737,11 +7737,6 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
-mkpath@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mkpath/-/mkpath-1.0.0.tgz#ebb3a977e7af1c683ae6fda12b545a6ba6c5853d"
-  integrity sha1-67Opd+evHGg65v2hK1Raa6bFhT0=
-
 moment@2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
@@ -10124,14 +10119,13 @@ rollup-plugin-typescript2@0.24.3:
     rollup-pluginutils "2.8.1"
     tslib "1.10.0"
 
-rollup-plugin-url@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-url/-/rollup-plugin-url-2.2.2.tgz#7623d479be360dd4003742a14eb56add2fdd5b5a"
-  integrity sha512-89cE0yr0UnDZgMfI8aWrBthnOS2ldARAxeF9rRvagQr5Pqrqob74PMNEodlCMdAU+LdykU7dbTEutVKWVhhORA==
+rollup-plugin-url@2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-url/-/rollup-plugin-url-2.2.3.tgz#d321031f6ba3e9cb1c8aea7b73752f2d2f99064d"
+  integrity sha512-ANoMkEcl6iWQk1jaTr0I3uUqQ/rVMBkVF7Gwg/E+DpwJasqiJ50M05WQ/0wAmmPVPYLa/Gck18j77Qi+9Nw7jQ==
   dependencies:
     mime "^2.4.4"
-    mkpath "^1.0.0"
-    rollup-pluginutils "^2.8.1"
+    rollup-pluginutils "^2.8.2"
 
 rollup-pluginutils@2.8.1, rollup-pluginutils@^2.8.1:
   version "2.8.1"
@@ -10147,6 +10141,13 @@ rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.5.0:
   dependencies:
     estree-walker "^0.6.0"
     micromatch "^3.1.10"
+
+rollup-pluginutils@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
+  integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
+  dependencies:
+    estree-walker "^0.6.1"
 
 rollup@1.23.1:
   version "1.23.1"
