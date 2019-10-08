@@ -10119,10 +10119,10 @@ rollup-plugin-typescript2@0.24.3:
     rollup-pluginutils "2.8.1"
     tslib "1.10.0"
 
-rollup-plugin-url@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-url/-/rollup-plugin-url-2.2.3.tgz#d321031f6ba3e9cb1c8aea7b73752f2d2f99064d"
-  integrity sha512-ANoMkEcl6iWQk1jaTr0I3uUqQ/rVMBkVF7Gwg/E+DpwJasqiJ50M05WQ/0wAmmPVPYLa/Gck18j77Qi+9Nw7jQ==
+rollup-plugin-url@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-url/-/rollup-plugin-url-3.0.0.tgz#38c1540eb02cf29aec2b7fb57ad3877505ed6a75"
+  integrity sha512-zeSVpWwsePvc6oTw5eyAlkfHhS6ZT9/pNVVgyzbeMTgd6rovxgg0FPE4o86b9Snembc0rCAaTvEsSfZinJMITw==
   dependencies:
     mime "^2.4.4"
     rollup-pluginutils "^2.8.2"
