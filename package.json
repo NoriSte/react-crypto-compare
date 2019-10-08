@@ -40,8 +40,8 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "7.6.2",
-    "@babel/preset-react": "7.0.0",
+    "@babel/preset-env": "7.6.3",
+    "@babel/preset-react": "7.6.3",
     "@cypress/webpack-preprocessor": "4.1.0",
     "@svgr/rollup": "4.3.3",
     "@types/axios": "0.14.0",
