@@ -68,7 +68,7 @@
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-typescript2": "0.25.2",
-    "rollup-plugin-url": "3.0.0",
+    "rollup-plugin-url": "3.0.1",
     "ts-loader": "6.2.1",
     "typescript": "3.7.2",
     "typescript-is-type": "1.0.2",
