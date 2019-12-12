@@ -4434,10 +4434,10 @@ cypress-react-unit-test@2.4.1:
   resolved "https://registry.yarnpkg.com/cypress-react-unit-test/-/cypress-react-unit-test-2.4.1.tgz#58f049e4a54e5c8565903d036536375604e50978"
   integrity sha512-OfZkqwSZvodS3g7fYPK5idyQkfbWkQFjuIOJTaX4hRR06L/u4vWBQzjo5KOleY3LV7nn0SR2Gc2jrmoetPNhFg==
 
-cypress@3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.6.1.tgz#4420957923879f60b7a5146ccbf81841a149b653"
-  integrity sha512-6n0oqENdz/oQ7EJ6IgESNb2M7Bo/70qX9jSJsAziJTC3kICfEMmJUlrAnP9bn+ut24MlXQST5nRXhUP5nRIx6A==
+cypress@3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.8.0.tgz#7d4cd08f81f9048ee36760cc9ee3b9014f9e84ab"
+  integrity sha512-gtEbqCgKETRc3pQFMsELRgIBNgiQg7vbOWTrCi7WE7bgOwNCaW9PEX8Jb3UN8z/maIp9WwzoFfeySfelYY7nRA==
   dependencies:
     "@cypress/listr-verbose-renderer" "0.4.1"
     "@cypress/xvfb" "1.2.4"
