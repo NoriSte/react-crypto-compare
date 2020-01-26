@@ -1,5 +1,9 @@
 # react-crypto-compare
 
+*Disclaimer: this was a tech exercise for a recruitment process.*
+
+---
+
 A simple cryptocurrencies converter component based on
 [https://min-api.cryptocompare.com](https://min-api.cryptocompare.com). Min React version: 16.8.
 
