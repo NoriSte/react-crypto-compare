@@ -5541,10 +5541,14 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress-react-unit-test@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/cypress-react-unit-test/-/cypress-react-unit-test-2.4.1.tgz#58f049e4a54e5c8565903d036536375604e50978"
-  integrity sha512-OfZkqwSZvodS3g7fYPK5idyQkfbWkQFjuIOJTaX4hRR06L/u4vWBQzjo5KOleY3LV7nn0SR2Gc2jrmoetPNhFg==
+cypress-react-unit-test@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/cypress-react-unit-test/-/cypress-react-unit-test-2.8.0.tgz#77d3bfcd4a0ac9dd8835a1648212f5699f03c83d"
+  integrity sha512-Y+GGo6kiZMqCEI2lwUulzXUctJUQx7KCJcuxo7WtOEPohl8+sMFAPO+GeSOm3j542rk5l1c/mIQmZ85oPRDlRA==
+  dependencies:
+    "@cypress/webpack-preprocessor" "4.1.3"
+    debug "4.1.1"
+    find-yarn-workspace-root "1.2.1"
 
 cypress@4.3.0:
   version "4.3.0"
@@ -6715,6 +6719,14 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
+find-yarn-workspace-root@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/find-yarn-workspace-root/-/find-yarn-workspace-root-1.2.1.tgz#40eb8e6e7c2502ddfaa2577c176f221422f860db"
+  integrity sha512-dVtfb0WuQG+8Ag2uWkbG79hOUzEsRrhBzgfn86g2sJPkzmcpGdghbNTfUKGTxymFrY/tLIodDzLoW9nOJ4FY8Q==
+  dependencies:
+    fs-extra "^4.0.3"
+    micromatch "^3.1.4"
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
@@ -6821,7 +6833,7 @@ fs-extra@3.0.1:
     jsonfile "^3.0.0"
     universalify "^0.1.0"
 
-fs-extra@4.0.3:
+fs-extra@4.0.3, fs-extra@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.3.tgz#0d852122e5bc5beb453fb028e9c0c9bf36340c94"
   integrity sha512-q6rbdDd1o2mAnQreO7YADIxf/Whx4AHBiRf6d+/cVT8h44ss+lHgxf1FemcqDnQt9X3ct4McHr+JMGlYSsK7Cg==
