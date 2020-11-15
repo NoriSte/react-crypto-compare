@@ -43,7 +43,7 @@
     "@babel/preset-env": "7.12.1",
     "@babel/preset-react": "7.12.5",
     "@cypress/webpack-preprocessor": "5.4.11",
-    "@svgr/rollup": "5.4.0",
+    "@svgr/rollup": "5.5.0",
     "@types/axios": "0.14.0",
     "@types/classnames": "2.2.11",
     "@types/jest": "26.0.15",
